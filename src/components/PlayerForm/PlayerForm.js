@@ -5,7 +5,8 @@ export default function PlayerForm({ onAddPlayer }) {
     <form className="PlayerForm" onSubmit={handleSubmit}>
       <label className="label">
         Add player:
-        <input name="player" placeholder="Player name" onChange={onAddPlayer} />
+        <br />
+        <input name="player" placeholder="Player name" />
       </label>
     </form>
   )

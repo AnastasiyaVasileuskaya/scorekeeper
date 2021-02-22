@@ -1,5 +1,9 @@
 import './Button.css'
 
-export default function Button({ text, onClick }) {
-  return <button onClick={onClick}>{text}</button>
+export default function Button({ text, onClick, type }) {
+  return (
+    <button className="Button" type={type} onClick={onClick}>
+      {text}
+    </button>
+  )
 }
