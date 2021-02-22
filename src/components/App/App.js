@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <Header title="Scorekeeper" />
-      <PlayerForm />
+      <PlayerForm onAddPlayer={name => console.log(name)} />
       <Player name="Jahn Doe" score="20" />
       <Player name="Jane Doe" score="30" />
       <Button text="Reset scores" />

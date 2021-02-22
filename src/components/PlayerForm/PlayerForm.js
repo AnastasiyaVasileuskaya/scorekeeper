@@ -2,11 +2,21 @@ import './PlayerForm.css'
 
 export default function PlayerForm({ onAddPlayer }) {
   return (
-    <div className="PlayerForm">
+    <form className="PlayerForm" onSubmit={handleSubmit}>
       <label className="label">
         Add player:
-        <input placeholder="Player name" onChange={onAddPlayer} />
+        <input name="player" placeholder="Player name" onChange={onAddPlayer} />
       </label>
-    </div>
+    </form>
   )
+
+  function handleSubmit(event) {
+    event.preventDefault()
+    const form = event.target
+    const input = form.elements.player
+    const name = input.value
+    onAddPlayer(name)
+    form.reset()
+    input.focus()
+  }
 }
