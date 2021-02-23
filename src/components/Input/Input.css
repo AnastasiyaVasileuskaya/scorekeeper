@@ -1,3 +1,8 @@
 .Input {
-  padding: 10px;
+  display: grid;
+  gap: 4px;
+}
+
+.Input input {
+  border: 2px solid #bbb;
 }

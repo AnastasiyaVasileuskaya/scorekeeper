@@ -1,8 +1,11 @@
 import './Button.css'
 
-export default function Button({ text, onClick, type }) {
+export default function Button({ text, onClick, isActive }) {
   return (
-    <button className="Button" type={type} onClick={onClick}>
+    <button
+      className={isActive ? 'Button Button--active' : 'Button'}
+      onClick={onClick}
+    >
       {text}
     </button>
   )
