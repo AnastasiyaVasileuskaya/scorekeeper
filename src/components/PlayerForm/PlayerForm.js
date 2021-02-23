@@ -3,7 +3,7 @@ import './PlayerForm.css'
 export default function PlayerForm({ onAddPlayer }) {
   return (
     <form className="PlayerForm" onSubmit={handleSubmit}>
-      <label className="label">
+      <label>
         Add player:
         <br />
         <input name="player" placeholder="Player name" />

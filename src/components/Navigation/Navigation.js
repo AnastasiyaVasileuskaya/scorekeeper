@@ -1,17 +1,19 @@
 import './Navigation.css'
+import Button from '../Button/Button'
 
-export default function Navigation({ activeIndex, onNavigate, pages }) {
+export default function Navigation({ activeIndex, onNavigate }) {
   return (
     <nav className="Navigation">
-      {pages.map((page, index) => (
-        <button
-          key={page}
-          disabled={index === activeIndex}
-          onClick={() => onNavigate(index)}
-        >
-          {page}
-        </button>
-      ))}
+      <Button
+        isActive={activeIndex === 0}
+        text="Play"
+        onClick={() => onNavigate(0)}
+      />
+      <Button
+        isActive={activeIndex === 1}
+        text="History"
+        onClick={() => onNavigate(1)}
+      />
     </nav>
   )
 }

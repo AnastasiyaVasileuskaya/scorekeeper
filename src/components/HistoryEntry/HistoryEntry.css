@@ -1,7 +1,9 @@
 .HistoryEntry {
-  padding: 10px;
+  display: grid;
+  gap: 10px;
 }
 
-.score {
-  margin-left: 40px;
+.HistoryEntry__player {
+  display: flex;
+  justify-content: space-between;
 }

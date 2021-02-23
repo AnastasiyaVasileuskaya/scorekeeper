@@ -8,24 +8,27 @@ export default function GameForm({ onCreateGame }) {
       <Input
         labelText="Name of game:"
         placeholderText="e.g. Carcassonne"
-        name="gameName"
+        name="nameOfGame"
       />
       <Input
         labelText="Player names:"
         placeholderText="e.g. John Doe, Jane Doe"
         name="playerNames"
       />
-      <Button text="Create game" type="submit" />
+      <Button text="Create game" />
     </form>
   )
 
   function handleSubmit(event) {
     event.preventDefault()
     const form = event.target
-    const inputGameName = form.elements.gameName
-    const inputPlayerNames = form.elements.playerNames
-    onCreateGame(inputGameName.value, inputPlayerNames.value)
+    const { nameOfGame, playerNames } = form.elements
+
+    onCreateGame({
+      nameOfGame: nameOfGame.value,
+      playerNames: playerNames.value.split(',').map(name => name.trim()),
+    })
     form.reset()
-    inputGameName.focus()
+    nameOfGame.focus()
   }
 }
