@@ -3,15 +3,6 @@ import Input from '../Input/Input'
 import Button from '../Button/Button'
 
 export default function GameForm({ onCreateGame }) {
-  function handleSubmit(event) {
-    event.preventDefault()
-    const form = event.target
-    const inputGameName = form.elements.gameName
-    const inputPlayerNames = form.elements.playerNames
-    onCreateGame(inputGameName.value, inputPlayerNames.value)
-    form.reset()
-    inputGameName.focus()
-  }
   return (
     <form className="GameForm" onSubmit={handleSubmit}>
       <Input
@@ -27,4 +18,14 @@ export default function GameForm({ onCreateGame }) {
       <Button text="Create game" type="submit" />
     </form>
   )
+
+  function handleSubmit(event) {
+    event.preventDefault()
+    const form = event.target
+    const inputGameName = form.elements.gameName
+    const inputPlayerNames = form.elements.playerNames
+    onCreateGame(inputGameName.value, inputPlayerNames.value)
+    form.reset()
+    inputGameName.focus()
+  }
 }

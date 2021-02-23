@@ -1,16 +1,17 @@
 import './GamePage.css'
 import Header from '../Header/Header'
-import PlayerForm from '../PlayerForm/PlayerForm'
 import Player from '../Player/Player'
 import Button from '../Button/Button'
 
-export default function GamePage() {
+export default function GamePage({ game }) {
+  if (game === null) {
+    return null
+  }
   return (
     <div className="GamePage">
-      <Header title="Carcassonne" />
-      <PlayerForm onAddPlayer={name => console.log(name)} />
+      <Header title={game.name} />
       <Player
-        name="Jahn Doe"
+        name={game.players}
         score="20"
         onPlus={() => console.log('onPlus')}
         onMinus={() => console.log('onMinus')}

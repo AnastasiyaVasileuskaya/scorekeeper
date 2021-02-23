@@ -2,7 +2,7 @@ import './Playpage.css'
 import GameForm from '../GameForm/GameForm'
 import Navigation from '../Navigation/Navigation'
 
-export default function Playpage() {
+export default function Playpage({ handleSubmit }) {
   return (
     <div className="Playpage">
       <GameForm onCreateGame={handleSubmit} />
@@ -13,9 +13,4 @@ export default function Playpage() {
       />
     </div>
   )
-}
-
-function handleSubmit(nameOfGame, playerGames) {
-  let players = playerGames.split(',')
-  console.log(nameOfGame, players)
 }
