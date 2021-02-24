@@ -1,12 +1,10 @@
-import GameForm from './GameForm'
 import Navigation from './Navigation'
-import Header from './Header'
-import HistoryEntry from './HistoryEntry'
 import { useState } from 'react'
-import Button from './Button'
-import Player from './Player'
 import styled from 'styled-components/macro'
 import { v4 as uuidv4 } from 'uuid'
+import Playpage from './Playpage'
+import Gamepage from './Gamepage'
+import Historypage from './Historypage'
 
 export default function App() {
   const [players, setPlayers] = useState([])
@@ -16,36 +14,20 @@ export default function App() {
 
   return (
     <AppLayout>
-      {currentPage === 'play' && (
-        <div>
-          <GameForm onCreateGame={createGame} />
-        </div>
-      )}
+      {currentPage === 'play' && <Playpage onCreateGame={createGame} />}
 
       {currentPage === 'game' && (
-        <div>
-          <Header>{nameOfGame}</Header>
-          {players.map(({ name, score }, index) => (
-            <Player
-              key={index}
-              name={name}
-              score={score}
-              onPlus={() => handlePlus(index)}
-              onMinus={() => handleMinus(index)}
-            />
-          ))}
-          <Button onClick={resetScores}>Reset scores</Button>
-          <Button onClick={endGame}>End game</Button>
-        </div>
+        <Gamepage
+          nameOfGame={nameOfGame}
+          players={players}
+          onPlus={handlePlus}
+          onMinus={handleMinus}
+          onReset={resetScores}
+          onEnd={endGame}
+        />
       )}
 
-      {currentPage === 'history' && (
-        <HistoryWrapper>
-          {history.map(({ nameOfGame, players, id }) => (
-            <HistoryEntry key={id} nameOfGame={nameOfGame} players={players} />
-          ))}
-        </HistoryWrapper>
-      )}
+      {currentPage === 'history' && <Historypage history={history} />}
 
       {(currentPage === 'play' || currentPage === 'history') && (
         <Navigation currentPage={currentPage} onNavigate={setCurrentPage} />
@@ -93,8 +75,4 @@ const AppLayout = styled.div`
   display: grid;
   gap: 20px;
   padding: 20px;
-`
-const HistoryWrapper = styled.div`
-  display: grid;
-  gap: 30px;
 `

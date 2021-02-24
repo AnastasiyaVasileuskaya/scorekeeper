@@ -4,7 +4,7 @@ export default function Input({ labelText, placeholder, name }) {
   return (
     <Label>
       {labelText}
-      <Inputfield isActive name={name} placeholder={placeholder} type="text" />
+      <Inputfield name={name} placeholder={placeholder} type="text" />
     </Label>
   )
 }
