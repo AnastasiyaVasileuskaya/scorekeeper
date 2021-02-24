@@ -1,10 +1,10 @@
-import './GameForm.css'
-import Input from '../Input/Input'
-import Button from '../Button/Button'
+import Input from './Input'
+import Button from './Button'
+import styled from 'styled-components/macro'
 
 export default function GameForm({ onCreateGame }) {
   return (
-    <form className="GameForm" onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit}>
       <Input
         labelText="Name of game:"
         placeholderText="e.g. Carcassonne"
@@ -15,8 +15,8 @@ export default function GameForm({ onCreateGame }) {
         placeholderText="e.g. John Doe, Jane Doe"
         name="playerNames"
       />
-      <Button text="Create game" />
-    </form>
+      <Button>Create game</Button>
+    </Form>
   )
 
   function handleSubmit(event) {
@@ -32,3 +32,8 @@ export default function GameForm({ onCreateGame }) {
     nameOfGame.focus()
   }
 }
+
+const Form = styled.form`
+  display: grid;
+  gap: 10px;
+`
