@@ -1,7 +1,7 @@
 import GameForm from './GameForm'
 import styled from 'styled-components/macro'
 
-export default function Playpage({ onCreateGame }) {
+export default function CreatePage({ onCreateGame }) {
   return (
     <Grid>
       <GameForm onCreateGame={onCreateGame} />

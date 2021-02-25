@@ -1,7 +1,7 @@
 import styled from 'styled-components/macro'
 import HistoryEntry from './HistoryEntry'
 
-export default function Historypage({ history }) {
+export default function HistoryPage({ history }) {
   return (
     <HistoryWrapper>
       {history.map(({ nameOfGame, players, id }) => (

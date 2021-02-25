@@ -3,14 +3,14 @@ import Header from './Header'
 import Player from './Player'
 import styled from 'styled-components'
 
-export default function Gamepage(
+export default function GamePage({
   nameOfGame,
   players,
   onPlus,
   onMinus,
   onReset,
-  onEnd
-) {
+  onEnd,
+}) {
   return (
     <Grid>
       <Header>{nameOfGame}</Header>
