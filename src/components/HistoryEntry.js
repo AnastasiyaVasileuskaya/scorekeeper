@@ -1,9 +1,18 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
-export default function HistoryEntry({ nameOfGame, players }) {
+export default function HistoryEntry({
+  nameOfGame,
+  players,
+  isNameALink = true,
+}) {
   return (
     <Section>
-      <h3>{nameOfGame}</h3>
+      {isNameALink ? (
+        <Link to={`/history/${nameOfGame}`}>{nameOfGame}</Link>
+      ) : (
+        nameOfGame
+      )}
       {players.map((player, index) => (
         <Entryplayer key={index}>
           <span>{player.name}</span>
